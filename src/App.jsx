@@ -478,7 +478,6 @@ function Contact() {
   <FaPhone className="text-2xl" />
   <span className="text-lg tracking-wide">+6281288739856</span>
 </a>
-
 {/* WhatsApp */}
 <a href="https://wa.me/6281288739856" target="_blank" rel="noopener noreferrer"
    className="flex items-center gap-4 justify-center md:justify-start hover:text-green-400 transition">
@@ -487,9 +486,16 @@ function Contact() {
 </a>
 
 {/* Email */}
-<a href="mailto:idea@delution.co.id" className="flex items-center gap-4 justify-center md:justify-start hover:text-gray-400 transition">
+<a href="mailto:suryabajalestari@gmail.com" className="flex items-center gap-4 justify-center md:justify-start hover:text-gray-400 transition">
   <FaEnvelope className="text-2xl text-gray-300" />
   <span className="text-lg tracking-wide underline">suryabajalestari@gmail.com</span>
+</a>
+
+{/* Instagram */}
+<a href="https://www.instagram.com/suryabajalestari" target="_blank" rel="noopener noreferrer"
+   className="flex items-center gap-4 justify-center md:justify-start hover:text-pink-400 transition">
+  <FaInstagram className="text-2xl text-pink-400" />
+  <span className="text-lg tracking-wide">@suryabajalestari</span>
 </a>
           </div>
 
@@ -507,15 +513,6 @@ function Contact() {
 
         </div>
 
-        {/* Ikon Media Sosial */}
-        <div className="mt-10 flex gap-6 justify-center">
-         
-          <a href="#" className="p-3 bg-pink-500 hover:bg-pink-600 rounded-full">
-            <FaInstagram className="text-white text-2xl" />
-          </a>
-
-       
-        </div>
 
       </div>
     </section>

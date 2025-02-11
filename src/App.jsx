@@ -39,7 +39,7 @@ function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "services", "portfolio", "contact"];
+      const sections = ["home", "about", "services", "contact"];
       let currentSection = "";
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -96,17 +96,7 @@ function Header() {
               />
             }
           />
-          <NavItem
-            href="#portfolio"
-            label="Portfolio"
-            icon={
-              <FaBriefcase
-                className={`w-6 h-6 mr-2 ${
-                  activeSection === "portfolio" ? "text-purple-800" : "text-purple-600"
-                }`}
-              />
-            }
-          />
+         
           <NavItem
             href="#contact"
             label="Kontak"
@@ -150,7 +140,7 @@ function Header() {
             <NavItem href="#home" label="Beranda" icon={<FaHome className="w-6 h-6 mr-2 text-blue-600" />} />
             <NavItem href="#about" label="Tentang" icon={<FaUser className="w-6 h-6 mr-2 text-green-600" />} />
             <NavItem href="#services" label="Jasa" icon={<FaToolbox className="w-6 h-6 mr-2 text-yellow-600" />} />
-            <NavItem href="#portfolio" label="Portfolio" icon={<FaBriefcase className="w-6 h-6 mr-2 text-purple-600" />} />
+            {/* <NavItem href="#portfolio" label="Portfolio" icon={<FaBriefcase className="w-6 h-6 mr-2 text-purple-600" />} /> */}
             <NavItem href="#contact" label="Kontak" icon={<FaEnvelope className="w-6 h-6 mr-2 text-red-600" />} />
 
             

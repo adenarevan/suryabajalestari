@@ -15,7 +15,7 @@ import {
   FaInstagram,
 
   FaWhatsapp,
-  FaTiktok,
+
   FaPhone,
 } from "react-icons/fa";
 
@@ -274,9 +274,7 @@ function Hero() {
             <FaInstagram className="text-white text-2xl" />
           </a>
   
-          <a href="#" className="bg-black hover:bg-gray-900 p-3 rounded-full">
-            <FaTiktok className="text-white text-2xl" />
-          </a>
+          
         </div>
 
       </motion.div>
@@ -516,9 +514,7 @@ function Contact() {
             <FaInstagram className="text-white text-2xl" />
           </a>
 
-          <a href="#" className="p-3 bg-black hover:bg-gray-900 rounded-full">
-            <FaTiktok className="text-white text-2xl" />
-          </a>
+       
         </div>
 
       </div>

@@ -9,7 +9,6 @@ import {
   FaHome,
   FaUser,
   FaToolbox,
-  FaBriefcase,
   FaEnvelope,
 
   FaInstagram,
@@ -272,17 +271,17 @@ function Hero() {
   );
 }
 
-
 function About() {
   return (
-    <section id="about" className="py-20 bg-white flex flex-col items-center">
+    <section id="about" className="py-20 bg-black text-white flex flex-col items-center">
       <div className="container mx-auto px-6 text-center">
+        
         {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold text-gray-800 mb-6 border-b-4 border-blue-500 inline-block pb-2"
+          className="text-5xl font-bold mb-6 border-b-4 border-blue-500 inline-block pb-2"
         >
           Tentang Kami
         </motion.h2>
@@ -292,10 +291,10 @@ function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto"
+          className="mt-4 text-lg text-gray-300 max-w-3xl mx-auto"
         >
-          Selamat datang di <strong>Surya Baja Lestari</strong>, perusahaan terkemuka di bidang{" "}
-          <em>konstruksi baja</em> dan <em>bengkel las</em> yang berdiri sejak tahun 1995. 
+          Selamat datang di <strong>Surya Baja Lestari</strong>, perusahaan terkemuka dalam bidang{" "}
+          <em>konstruksi baja</em> dan <em>bengkel las</em> yang berdiri sejak tahun 1995.
           Kami melayani berbagai kebutuhan konstruksi dengan kualitas terbaik dan tenaga ahli profesional.
         </motion.p>
 
@@ -307,9 +306,9 @@ function About() {
           className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto"
         >
           {/* Kolom 1 */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold text-blue-600 mb-4">Layanan Kami</h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-lg border border-gray-700">
+            <h3 className="text-2xl font-semibold text-blue-400 mb-4">Layanan Kami</h3>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 text-left">
               <li>Konstruksi Baja & Stainless Steel</li>
               <li>Seni Klasik Besi Tempa & Seni Minimalis</li>
               <li>Pagar, Pintu Besi, dan Pintu Sliding</li>
@@ -318,9 +317,9 @@ function About() {
           </div>
 
           {/* Kolom 2 */}
-          <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
-            <h3 className="text-2xl font-semibold text-blue-600 mb-4">Keunggulan Kami</h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-2 text-left">
+          <div className="bg-gray-900 p-6 rounded-lg shadow-lg border border-gray-700">
+            <h3 className="text-2xl font-semibold text-blue-400 mb-4">Keunggulan Kami</h3>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 text-left">
               <li>Berpengalaman lebih dari 25 tahun</li>
               <li>Material berkualitas tinggi</li>
               <li>Tenaga kerja profesional</li>
@@ -332,7 +331,6 @@ function About() {
     </section>
   );
 }
-
 
 function Services() {
   const serviceImages = [
@@ -354,28 +352,32 @@ function Services() {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-100">
+    <section id="services" className="py-20 bg-black text-white">
       <div className="container mx-auto px-6">
+        
+        {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center text-gray-800 mb-10"
+          className="text-4xl font-bold text-center mb-10 border-b-4 border-blue-500 inline-block pb-2"
         >
           Layanan Kami
         </motion.h2>
+
+        {/* Grid Gambar Layanan */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {serviceImages.map((src, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.05 }}
-              className="overflow-hidden rounded-lg shadow-lg cursor-pointer"
+              className="overflow-hidden rounded-lg shadow-lg cursor-pointer border border-gray-700 bg-gray-900"
               onClick={() => window.open(`/images/${src}`, "_blank")}
             >
               <img 
                 src={`/images/${src}`} 
                 alt={`Service ${index + 1}`} 
-                className="w-full h-64 object-cover object-center" 
+                className="w-full h-64 object-cover object-center hover:opacity-80 transition"
               />
             </motion.div>
           ))}
@@ -384,7 +386,6 @@ function Services() {
     </section>
   );
 }
-
 
 // function Portfolio() {
 //   const serviceImages = [
@@ -437,6 +438,9 @@ function Services() {
 //     </section>
 //   );
 // }
+
+
+
 function Contact() {
   return (
     <section id="contact" className="py-20 bg-black text-white">
@@ -452,45 +456,45 @@ function Contact() {
           Kontak Kami
         </motion.h2>
 
-        <div className="flex flex-col md:flex-row items-center justify-between">
+        <div className="flex flex-col md:flex-row md:items-start md:gap-10">
           
           {/* Informasi Kontak */}
-          <div className="w-full md:w-1/2 space-y-6 text-lg text-center md:text-left">
+          <div className="w-full md:w-1/2 space-y-6 text-lg text-left">
             
             <p className="tracking-wide leading-relaxed">
               <strong>Jl. Raya Kutabumi, Karet,</strong><br />
-              
               Kec. Sepatan, Kabupaten Tangerang, Banten 15520
             </p>
 
-           {/* Nomor Telepon */}
-<a href="tel:+6281288739856" className="flex items-center gap-4 justify-center md:justify-start hover:text-blue-400 transition">
-  <FaPhone className="text-2xl" />
-  <span className="text-lg tracking-wide">+6281288739856</span>
-</a>
-{/* WhatsApp */}
-<a href="https://wa.me/6281288739856" target="_blank" rel="noopener noreferrer"
-   className="flex items-center gap-4 justify-center md:justify-start hover:text-green-400 transition">
-  <FaWhatsapp className="text-2xl text-green-400" />
-  <span className="text-lg tracking-wide">+62 812-8873-9856 (WA)</span>
-</a>
+            {/* Nomor Telepon */}
+            <a href="tel:+6281288739856" className="flex items-center gap-4 hover:text-blue-400 transition">
+              <FaPhone className="text-2xl" />
+              <span className="text-lg tracking-wide">+62 812-8873-9856</span>
+            </a>
 
-{/* Email */}
-<a href="mailto:suryabajalestari@gmail.com" className="flex items-center gap-4 justify-center md:justify-start hover:text-gray-400 transition">
-  <FaEnvelope className="text-2xl text-gray-300" />
-  <span className="text-lg tracking-wide underline">suryabajalestari@gmail.com</span>
-</a>
+            {/* WhatsApp */}
+            <a href="https://wa.me/6281288739856" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-4 hover:text-green-400 transition">
+              <FaWhatsapp className="text-2xl text-green-400" />
+              <span className="text-lg tracking-wide">+62 812-8873-9856 (WA)</span>
+            </a>
 
-{/* Instagram */}
-<a href="https://www.instagram.com/suryabajalestari" target="_blank" rel="noopener noreferrer"
-   className="flex items-center gap-4 justify-center md:justify-start hover:text-pink-400 transition">
-  <FaInstagram className="text-2xl text-pink-400" />
-  <span className="text-lg tracking-wide">@suryabajalestari</span>
-</a>
+            {/* Email */}
+            <a href="mailto:suryabajalestari@gmail.com" className="flex items-center gap-4 hover:text-gray-400 transition">
+              <FaEnvelope className="text-2xl text-gray-300" />
+              <span className="text-lg tracking-wide underline">suryabajalestari@gmail.com</span>
+            </a>
+
+            {/* Instagram */}
+            <a href="https://www.instagram.com/suryabajalestari" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-4 hover:text-pink-400 transition">
+              <FaInstagram className="text-2xl text-pink-400" />
+              <span className="text-lg tracking-wide">@suryabajalestari</span>
+            </a>
           </div>
 
           {/* Google Maps */}
-          <div className="w-full md:w-1/2 mt-10 md:mt-0 md:ml-10 relative overflow-hidden rounded-lg shadow-lg">
+          <div className="w-full md:w-1/2 mt-10 md:mt-0 relative overflow-hidden rounded-lg shadow-lg">
             <div className="w-full h-0 pb-[56.25%] relative"> {/* Rasio 16:9 */}
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4705.446701564057!2d106.58266857573072!3d-6.153364060315091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ff79d5e8195b%3A0x2daab75d9ef82135!2sSurya%20Baja%20Lestari!5e1!3m2!1sid!2sid!4v1739172224864!5m2!1sid!2sid"
@@ -503,12 +507,10 @@ function Contact() {
 
         </div>
 
-
       </div>
     </section>
   );
 }
-
 
 function Footer() {
   return (

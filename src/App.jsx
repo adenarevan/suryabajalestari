@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback  } from "react";
 import PropTypes from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -188,21 +188,45 @@ NavItem.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
 };
+
 function Hero() {
+  // Optimasi: Menggunakan useMemo agar tidak membuat array baru setiap render
   const images = Array.from({ length: 55 }, (_, i) => `/images/islide_${String(i + 1).padStart(3, '0')}.jpg`);
   const [current, setCurrent] = useState(0);
+  const [loadedImages, setLoadedImages] = useState(new Set()); // Untuk lazy loading
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
+  // Fungsi update slide dengan useCallback untuk mencegah render ulang yang tidak perlu
+  const updateSlide = useCallback(() => {
+    setCurrent((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
+  // Mengatur interval perubahan gambar
+  useEffect(() => {
+    const interval = setInterval(updateSlide, 5000);
+    return () => clearInterval(interval);
+  }, [updateSlide]);
+
+  // Lazy Loading menggunakan Intersection Observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setLoadedImages((prev) => new Set(prev).add(images[current]));
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(document.getElementById("hero-section"));
+    return () => observer.disconnect();
+  }, [current, images]);
+
   return (
-    <section id="home" className="relative z-10 h-auto min-h-screen w-screen flex flex-col items-center justify-center pt-24 lg:pt-32 pb-10 lg:pb-16">
+    <section id="hero-section" className="relative z-10 min-h-screen w-screen flex flex-col items-center justify-center pt-24 lg:pt-32 pb-10 lg:pb-16">
       
-      {/* Background Image */}
+      {/* Background Image dengan Lazy Loading */}
       <AnimatePresence>
         <motion.div
           key={images[current]}
@@ -211,10 +235,10 @@ function Hero() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('${images[current]}')` }}
-        ></motion.div>
+          style={{ backgroundImage: loadedImages.has(images[current]) ? `url('${images[current]}')` : "none" }}
+        />
       </AnimatePresence>
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
@@ -226,13 +250,14 @@ function Hero() {
         className="relative text-center text-white z-10 px-4 max-w-xl space-y-6"
       >
         
-        {/* Logo (Perbaikan: Tidak Gepeng) */}
+        {/* Logo (Optimasi Lazy Load) */}
         <motion.img
           src="/images/surya-baja-lestari_hor.png"
           alt="Surya Baja Lestari"
           className="relative z-20 mx-auto h-auto w-auto max-w-xs sm:max-w-sm md:max-w-md object-contain"
           whileHover={{ scale: 1.1 }}
           transition={{ duration: 0.3 }}
+          loading="lazy"
         />
 
         {/* Deskripsi */}
@@ -258,12 +283,9 @@ function Hero() {
 
         {/* Ikon Media Sosial */}
         <div className="mt-8 flex gap-4 justify-center">
-      
           <a href="https://www.instagram.com/suryabajalestari" className="bg-pink-500 hover:bg-pink-600 p-3 rounded-full">
             <FaInstagram className="text-white text-2xl" />
           </a>
-  
-          
         </div>
 
       </motion.div>

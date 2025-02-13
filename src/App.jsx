@@ -488,7 +488,7 @@ function Contact() {
             {/* Email */}
             <a href="mailto:suryabajalestari@gmail.com" className="flex items-center gap-4 hover:text-gray-400 transition">
               <FaEnvelope className="text-2xl text-gray-300" />
-              <span className="text-lg tracking-wide underline">suryabajalestari@gmail.com</span>
+              <span className="text-lg tracking-wide underline">taufik@suryabajalestari.com</span>
             </a>
 
             {/* Instagram */}

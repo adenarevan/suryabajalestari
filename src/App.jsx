@@ -479,6 +479,12 @@ function Contact() {
               <span className="text-lg tracking-wide">+62 812-8873-9856 (WA)</span>
             </a>
 
+            <a href="https://wa.me/6281323068998" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-4 hover:text-green-400 transition">
+              <FaWhatsapp className="text-2xl text-green-400" />
+              <span className="text-lg tracking-wide">+62 813-2306-8998 (WA2)</span>
+            </a>
+
             {/* Email */}
             <a href="mailto:suryabajalestari@gmail.com" className="flex items-center gap-4 hover:text-gray-400 transition">
               <FaEnvelope className="text-2xl text-gray-300" />

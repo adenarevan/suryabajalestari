@@ -63,7 +63,7 @@ function Header() {
         {/* Navigasi utama */}
         <nav className="hidden md:flex items-center space-x-10 font-[Poppins]">
           <NavItem
-            href="#home"
+            href="#hero-section"
             label="Beranda"
             icon={
               <FaHome
@@ -136,7 +136,7 @@ function Header() {
 
         >
           <nav className="flex flex-col p-4 space-y-4">
-            <NavItem href="#home" label="Beranda" icon={<FaHome className="w-6 h-6 mr-2 text-blue-600" />} />
+            <NavItem href="#hero-section" label="Beranda" icon={<FaHome className="w-6 h-6 mr-2 text-blue-600" />} />
             <NavItem href="#about" label="Tentang" icon={<FaUser className="w-6 h-6 mr-2 text-green-600" />} />
             <NavItem href="#services" label="Jasa" icon={<FaToolbox className="w-6 h-6 mr-2 text-yellow-600" />} />
             {/* <NavItem href="#portfolio" label="Portfolio" icon={<FaBriefcase className="w-6 h-6 mr-2 text-purple-600" />} /> */}

@@ -110,7 +110,7 @@ function Header() {
 
           {/* Ikon media sosial */}
    
-          <a href="https://www.instagram.com/suryabajalestari" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/suryabajalestari_" target="_blank" rel="noopener noreferrer">
             <FaInstagram className="w-6 h-6 text-pink-500 hover:text-pink-700 transition-all duration-300 transform hover:scale-110" />
           </a>
  
@@ -283,7 +283,7 @@ function Hero() {
 
         {/* Ikon Media Sosial */}
         <div className="mt-8 flex gap-4 justify-center">
-          <a href="https://www.instagram.com/suryabajalestari" className="bg-pink-500 hover:bg-pink-600 p-3 rounded-full">
+          <a href="https://www.instagram.com/suryabajalestari_" className="bg-pink-500 hover:bg-pink-600 p-3 rounded-full">
             <FaInstagram className="text-white text-2xl" />
           </a>
         </div>
@@ -517,7 +517,7 @@ function Contact() {
             <a href="https://www.instagram.com/suryabajalestari" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-4 hover:text-pink-400 transition">
               <FaInstagram className="text-2xl text-pink-400" />
-              <span className="text-lg tracking-wide">@suryabajalestari</span>
+              <span className="text-lg tracking-wide">@suryabajalestari_</span>
             </a>
           </div>
 

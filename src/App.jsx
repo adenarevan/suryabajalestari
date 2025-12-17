@@ -517,7 +517,7 @@ function Contact() {
             <a href="https://www.instagram.com/suryabajalestari_" target="_blank" rel="noopener noreferrer"
               className="flex items-center gap-4 hover:text-pink-400 transition">
               <FaInstagram className="text-2xl text-pink-400" />
-              <span className="text-lg tracking-wide">@suryabajalestari_</span>
+              <span className="text-lg tracking-wide">suryabajalestari_</span>
             </a>
           </div>
 
